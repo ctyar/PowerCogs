@@ -1,1 +1,3 @@
 # PowerCogs
+
+Some assembly required.
