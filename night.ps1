@@ -4,6 +4,10 @@ if (($netAdapters | where InterfaceDescription -eq "D-Link DUB-1312/1332 USB3.0 
 {
     netsh wlan disconnect
 }
+elseif (($netAdapters | where InterfaceDescription -eq "Remote NDIS Compatible Device" | measure).Count -gt 0)
+{
+    netsh wlan disconnect
+}
 elseif (($netAdapters | where InterfaceDescription -eq "Killer Wireless-n/a/ac 1535 Wireless Network Adapter" | where status -eq 'up' | measure).Count -eq 0)
 {
     netsh wlan connect ssid=gnet name=gnet
